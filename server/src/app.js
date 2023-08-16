@@ -1,6 +1,6 @@
 let express = require('express');
 let bodyParser = require('body-parser');
-// const {sequelize} = require('./models');
+const {sequelize} = require('./models');
 const config = require('./config/config')
 
 const app = express();
@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 require('./routes')(app)
 
 app.get('/status' , function (req ,res){
-    res.send('Hello nodejs server');
+    res.send('Hello nodejs server belong to rathabod');
 })
 
 app.get('/hello/:person', function (req,res){
@@ -49,12 +49,13 @@ app.delete('/user/:userId',function(req,res){
 
 let port = process.env.PORT || config.port;
 
-app.listen(port,function (){
-    console.log('server is running on '+port);
+sequelize.sync({force: false}).then(()=>{
+    app.listen(port,function (){
+        console.log('Server running on ' + port);
+    })
 })
 
-// sequelize.sync({force: false}).then(()=>{
-//     // app.listen(port,function (){
-//     //     console.log('Server running on ' + port);
-//     // })
+// app.listen(port,function (){
+//     console.log('server is running on '+port);
 // })
+

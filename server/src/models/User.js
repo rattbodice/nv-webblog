@@ -7,5 +7,5 @@ module.exports = (sequelize, DataTypes) => {
         status: DataTypes,STRING,
         type: DataTypes.STRING
     })
-    return User;
+    return User
 }

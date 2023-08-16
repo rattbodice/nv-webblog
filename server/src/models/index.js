@@ -11,15 +11,15 @@ const sequelize = new Sequelize(
     config.db.options
 )
 
-//ใช้ทำไม ?
-// fs.readdirSync(__dirname)
-//     .filter((file) =>
-//         file !== 'index.js'
-//     )
-//     .forEach((file) => {
-//         const model = sequelize.import(path.join(__dirname, file))
-//         db[model.name] = model
-//     })
+
+fs.readdirSync(__dirname)
+    .filter((file) =>
+        file !== 'index.js'
+    )
+    .forEach((file) => {
+        const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes)
+        db[model.name] = model
+    })
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
