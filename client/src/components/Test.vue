@@ -9,7 +9,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Test my vue file.'
+      msg: 'Test vue file'
     }
   }
 }

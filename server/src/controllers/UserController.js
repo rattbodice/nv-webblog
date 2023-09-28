@@ -1,20 +1,20 @@
 const { User } = require('../models')
 
 module.exports = {
-    //get all user
+
+    // Get all users
     async index(req, res) {
         try {
             const users = await User.findAll()
             res.send(users)
         } catch (err) {
             res.status(500).send({
-                error: 'the users information was incorrect'
+                error: 'The users information was incorrect'
             })
         }
     },
-
-
-    // create user
+    // Create user
+    // res.send('ทำการสร้างผู้ใช้งาน' + JSON.stringify(req.body));
     async create(req, res) {
         try {
             const user = await User.create(req.body)
@@ -26,7 +26,8 @@ module.exports = {
         }
     },
 
-    // edit user, suspend, active
+    // Edit user
+    // res.send('แก้ไขข้อมูลผู้ใช้ ' + req.params.userId + ' : ' + JSON.stringify(req.body.name));
     async put(req, res) {
         try {
             await User.update(req.body, {
@@ -42,6 +43,8 @@ module.exports = {
         }
     },
 
+    // Delete user
+    // res.send('ทำการลบผู้ใช้งาน:' + req.params.userId + ' : ' + JSON.stringify(req.body));
     // delete user
     async remove(req, res) {
         try {
@@ -64,7 +67,7 @@ module.exports = {
         }
     },
 
-    // get user by id
+    // Show user by id
     async show(req, res) {
         try {
             const user = await User.findByPk(req.params.userId)
@@ -74,5 +77,7 @@ module.exports = {
                 error: 'The user information was incorrect'
             })
         }
-    },
+    }
 }
+
+
