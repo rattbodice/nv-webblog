@@ -8,12 +8,12 @@ export default {
         return Api().get('user/' + userId)
     },
     post(user) {
-        return Api().post('user', user)
+        return Api().post('user',user)
     },
     put(user) {
-        return Api().put('user/' + user.id, user)
+        return Api().put('user/'+user.id,user)
     },
     delete(user) {
-        return Api().delete('user/' + user.id, user)
+        return Api().delete('user/'+user.id,user)
     },
 }

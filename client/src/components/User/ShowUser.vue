@@ -1,35 +1,3 @@
-<!-- <template>
-    <div>
-        <h1>Get User By Id</h1>
-    </div>
-</template>
-<script>
-
-import UsersService from '@/services/UsersService'
-export default {
-    data() {
-        return {
-            users:null
-        }
-    },
-
-    methods: {
-        navigateTo(route) {
-            // ตรง$router ต้องตั้งให้ตรง folder ของ route
-            this.$router.push(route)
-        }
-    },
-
-    async created() {
-        let userId = this.$route.params.userId
-        this.users = (await UsersService.show(userId)).data
-        console.log(this.user)
-    }
-}
-
-</script>
-<style scoped></style> -->
-
 <template>
 
     <div>
@@ -59,7 +27,7 @@ export default {
 
     data() {
         return {
-            user: null
+            user: ""
         }
     },
 
